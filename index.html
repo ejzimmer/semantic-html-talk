@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>The importance of being semantic</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -12,20 +12,264 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+		<style>
+			.reveal .notes {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				border: 4px solid white;
+				border-radius: 8px;
+				background: hsla(0, 0%, 20%, .9);
+				padding: 0 1em;
+				font-size: .6em;
+				text-align: left;
+				max-width: 75%;
+				max-height: 25%;
+				overflow-y: auto;
+				box-shadow: 1px 1px 3px hsla(0, 0%, 20%, .4);
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>The importance of being semantic</h1>
+					<div class="notes">
+						<p>
+							Navigate using left/right arrows, page up/page down or space bar.
+						</p>
+						<p>
+							The notes boxes are scrollable, in case that's not obvious.
+						</p>
+					</div>
+				</section>
+				<section>
+					<div>HTML elements have intrinsic meaning</div>
+					<div class="notes">
+						<p>
+							HTML elements have intrinsic meaning, separate from their appearance,
+							and this meaning is important.
+						</p>
+						<p>
+							Using correct, semantic HTML provides the browser - or other rendering device 
+							- with important clues about how to deal with your content.
+						</p>
+					</div>	
+				</section>
+				<section>
+					<div>Screen readers</div>
+					<div class="notes">
+						<p>
+							The most frequenty cited use case for this is screen readers (and similar assistive 
+							technologies). Screen readers use the structure of your document to help the user navigate
+							the page. For example, a screen reader will generate a list of headings and a list of links 
+							on the page and read these out to the user. If you're not using headings correctly (or you're 
+							using buttons instead of links), then the user isn't going to get a good feel for what's going 
+							on in your app.
+						</p>
+						<p>
+							Screen readers also allow a user to navigate via regions on a page. Regions are things like 
+							<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> and <code>&lt;main&gt;</code> blocks.
+							Check out Smashing Magazine's webinar with
+							<a href="https://www.smashingmagazine.com/2019/02/accessibility-webinar/">
+								real life screen reader user, checking out some pages
+							</a>
+							to get an idea of what the web looks like to a screen reader.
+						</p>
+					</div>
+				</section>
+				<section>
+					<div>Should we care?</div>
+					<div class="notes">
+						<p>
+							The thing is though, screen readers account for a very small percentage of users. So is it
+							really worth the effort?
+						</p>
+						<p>
+							Yes, it is. For a couple of reasons.
+						</p>
+					</div>
+				</section>
+				<section>
+					<img src="coles.png" />
+					<div class="notes">
+						<p>
+							Firstly, we are legally obligated to make our site accessible to all our users.
+							You can <a href="https://www.smh.com.au/technology/blind-woman-gisele-mesnage-sues-coles-over-online-shopping-website-20141105-11h6zw.html">
+							checkout this news article on the Coles case
+							</a>.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="ie.png" data-background-size="contain">
+					<div class="notes">
+						<p>
+							Secondly, if we can justify all the time, frustration, and effort required to get our sites 
+							working in IE, then we can definitely justify making our sites accessible. Getting a page to
+							work correctly in IE usually involves making it <i>worse</i> for other users. We add JavaScript 
+							polyfills other browsers don't need, and nasty CSS hacks. Making a page accessible makes it 
+							<i>better</i> - for other users, but also for developers working on it later.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="disabilities.png" data-background-size="contain">
+					<div class="notes">
+						<p>
+							And, on that note - making our page more accessible, through techniques like using semantic 
+							HTML, isn't just about making it better for screen readers. It's about helping all our users.
+							Microsoft has this great chart, showing how accessibilty is important for everyone - not just 
+							the people we traditionally think of as disabled.
+						</p>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li>Screen readers</li>
+						<li>Keyboard/non-standard input users</li>
+						<li>Personalised stylesheets</li>
+						<li>TV/watch/e-reader</li>
+						<li>Slow internet connection</li>
+						<li>Low end device</li>
+					</ul>
+					<div class="notes">
+						<p>
+							It's also important to remember that not everyone is accessing your site through a nice 
+							laptop, or a high end phone. Making your site accessible - especially through the use of 
+							semantic HTML - is going to help users on all these types of devices. Many of these devices 
+							will not load your CSS, or may not run your JavaScript, meaning your HTML is all you have 
+							to stand on.
+						</p>
+					</div>
+				</section>
+				<section>
+					<style>
+						.link, .reveal a.link {
+							font-size: 42px;
+							color: #42affa;
+							text-decoration: underline;
+							border: none;
+							background: none;
+							font-family: 'Source Sans Pro';
+							cursor: pointer;
+						}
+						.link:focus, .reveal a.link:focus {
+							outline: 2px dashed currentColor;
+						}
+					</style>
+					<a class="link" href="http://www.cakewrecks.com/">Cake Wrecks</a>
+					<button class="link" onclick="location.href='http://www.cakewrecks.com/'">Cake Wrecks</button>
+					<div class="notes">
+						<p>
+							And even if you decide that you don't have to worry about any of that - it's still better to use 
+							semantic HTML, because browsers add behaviour to elements based on their semantics.
+						</p>
+						<p>
+							For example, on this page, we have a link, and a button with an onclick handler that navigates to 
+							a page. The two things aren't equivalent though. If you hover or focus on the link, you'll get a little
+							pop-up telling you where the link goes. And you can shift+click on the link to open it in a new window.
+						</p>
+						<p>
+							The button, on the other hand, will always open in the same tab. Furthermore, a button can be clicked
+							using either the enter key or space bar, while a link will only work with the enter key. (If you hit
+							space on the button here, it'll go to the next slide, then navigate to the next page, because slide 
+							software).
+						</p>
+					</div>
+				</section>
+				<section data-background-image="stack-pyramid.png" data-background-size="contain">
+					<div class="notes">
+						<p>
+							In an ideal world, we'd be building our apps according to this pyramid. A solid base of HTML,
+							with all the core information and functionality of the site. On top of this, CSS to give your 
+							page personality and style, and to enhance usability, where relevant. This is the point where
+							you apply all the stuff from the mock-ups that the designers give you - in the CSS <i>not</i>
+							the HTML.
+						</p>
+					</div>
+				</section>
+				<section>
+					<h2>Normal h2 heading</h2>
+					<h2 style="text-transform: none; font-size: 1.2em; text-decoration: underline">Smaller h2 heading</h2>
+					<pre style="margin-top: 50px"><code style="font-size: 42px;">
+  <h2 class="small">Small heading</h2>
+					</code></pre>
+					<div class="notes">
+						<p>
+							For example, if your app has H2 level headings that look like the normal H2 heading here. Then, on one 
+							page, inexplicably, the heading is smaller, like the second heading, but it's still the second-level 
+							heading on the page. Chances are, the designer has labelled this as a h3. They are incorrect. Ignore
+							them.
+						</p>
+						<p>
+							Instead, you should implement it as per the code snippet. It's a h2 element, with a class that changes
+							its appearance. Same thing if you have links that look like buttons (or vice versa). Semantically,
+							they're links. Use an <code>&lt;a&gt;</code> element, and change its appearance using CSS.
+						</p>
+					</div>
+				</section>
+				<section>
+					<iframe 
+					style="width: 100vw; height: 100vh;"
+					src="https://www.warnerbros.com/archive/spacejam/movie/jam.htm" 
+					frameborder="0"></iframe>
+					<div class="notes">
+						<p>
+							Because changing your HTML to accommodate the appearance of the page is how you get table layouts, like
+							this one. And nobody wants that, right? (I recommend clicking the Junior Jam link, if you really 
+							hate your eyeballs)
+						</p>
+					</div>
+				</section>
+				<section data-background-image="stack-pyramid.png" data-background-size="contain">
+					<div class="notes">
+						<p>
+							If we continue up this pyramid, you can see that ARIA and JavaScript should play a relatively small 
+							role. The ARIA bit probably makes sense by now - if you're using semantic HTML, then you shouldn't 
+							need to add aria-roles to most elements. You'll still need some for edge-case stuff, but probably 
+							95% of your HTML won't need it.
+						</p>
+						<p>
+							But what about JavaScript? According to our pyramid, it should be used sparingly, for enhancements only,
+							not for core functionality. Why is that?
+						</p>
+					</div>
+				</section>
+				<section>
+					<img src="performance.png" style="width: 100vw" alt="">
+					<div class="notes">
+						<p>
+							The answer is that JavaScript is expensive. JavaScript bundles are big - they take a lot of time and 
+							bandwidth to download. They also take a lot of processing power to render. When Chrome uses up all the 
+							RAM on your computer, it's not because of all the HTML it's processing.
+						</p>
+						<p>
+							This graph is me looking at Twitter for 10 seconds. I was using a late-model MacBook Pro, so the processor 
+							had no trouble - as evidenced by all the idle time. But of the time it was working, The vast majority of 
+							its efforts went into handling JavaScript.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="spa.jpg" data-background-size="cover">
+					<div class="notes">
+						<p>
+							Unfortunately, the world of Single Page Apps (or SPAs) makes it very difficult to follow this principle.
+							In my opinion, SPAs make for a really great developer experience, but they probably aren't the best 
+							experience for users. At least not in all the cases where we use them. There are technologies available 
+							to improve the situation a bit - like server-side rendering - but it's probably time that we started 
+							questioning whether a SPA is always automatically the best option.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="We_Can_Do_It.jpg" data-background-size="contain">
+					<div class="notes">
+						<p>
+							In the meantime though, we can do our best to improve our user experiences by creating solid, 
+							semantic HTML bases for our components, using CSS to control the styling, and using JavaScript 
+							only where we have to.
+						</p>
+					</div>
+				</section>
 			</div>
 		</div>
 
@@ -37,6 +281,9 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				controls: false,
+				history: true,
+				progress: false,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
