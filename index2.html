@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>The importance of being semantic</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+			.reveal .notes {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2 style="font-style: italic">The Importance of</h2>
+					<h1 style="padding: 40px">being semantic</h1>
+					<div class="notes">
+						<p>
+							Navigate using left/right arrows, page up/page down or space bar.
+						</p>
+						<p>
+							The notes boxes are scrollable, in case that's not obvious.
+						</p>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li>Why semantic HTML is important</li>
+						<li>Structuring code</li>
+						<li>The problem with Single Page Applications</li>
+					</ul>
+				</section>
+				<section>
+					<div>HTML elements have intrinsic meaning</div>
+					<div class="notes">
+						<p>
+							HTML elements have intrinsic meaning, separate from their appearance,
+							and this meaning is important.
+						</p>
+						<p>
+							Using correct, semantic HTML provides the browser - or other rendering device 
+							- with important clues about how to deal with your content.
+						</p>
+					</div>	
+				</section>
+				<section>
+					<div style="text-align: left; padding-left: 100px">Assistive technologies rely heavily<br> on semantic HTML</div>
+					<div class="notes">
+						<p>
+							The most frequenty cited use case for this is screen readers (and similar assistive 
+							technologies). Screen readers use the structure of your document to help the user navigate
+							the page. For example, a screen reader will generate a list of headings and a list of links 
+							on the page and read these out to the user. If you're not using headings correctly (or you're 
+							using buttons instead of links), then the user isn't going to get a good feel for what's going 
+							on in your app.
+						</p>
+						<p>
+							Screen readers also allow a user to navigate via regions on a page. Regions are things like 
+							<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> and <code>&lt;main&gt;</code> blocks.
+							Check out Smashing Magazine's webinar with
+							<a href="https://www.smashingmagazine.com/2019/02/accessibility-webinar/">
+								real life screen reader user, checking out some pages
+							</a>
+							to get an idea of what the web looks like to a screen reader.
+						</p>
+					</div>
+				</section>
+				<section>
+					<div>Should we care?</div>
+					<div class="notes">
+						<p>
+							The thing is though, screen readers account for a very small percentage of users. So is it
+							really worth the effort?
+						</p>
+						<p>
+							Yes, it is. For a couple of reasons.
+						</p>
+					</div>
+				</section>
+				<section>
+					<img src="coles.png" />
+					<div class="notes">
+						<p>
+							Firstly, we are legally obligated to make our site accessible to all our users.
+							You can <a href="https://www.smh.com.au/technology/blind-woman-gisele-mesnage-sues-coles-over-online-shopping-website-20141105-11h6zw.html">
+							checkout this news article on the Coles case
+							</a>.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="ie.png" data-background-size="contain" data-background-position="30px -40px">
+					<h3 style="width: 60%; position: fixed; right: 0; top: 30%;"><span style="color: magenta">Accessibility</span> is more valuable than supporting <span style="color: cyan">IE</span></h3>
+					<div class="notes">
+						<p>
+							Secondly, if we can justify all the time, frustration, and effort required to get our sites 
+							working in IE, then we can definitely justify making our sites accessible. Getting a page to
+							work correctly in IE usually involves making it <i>worse</i> for other users. We add JavaScript 
+							polyfills other browsers don't need, and nasty CSS hacks. Making a page accessible makes it 
+							<i>better</i> - for other users, but also for developers working on it later.
+						</p>
+					</div>
+				</section>
+				<section data-background-image="disabilities.png" data-background-size="contain" data-background-position="left">
+					<h3 style="width: 50%; position: fixed; right: 0; top: 37%">"Disability" could mean<br> many things</h3>
+					<div class="notes">
+						<p>
+							And, on that note - making our page more accessible, through techniques like using semantic 
+							HTML, isn't just about making it better for screen readers. It's about helping all our users.
+							Microsoft has this great chart, showing how accessibilty is important for everyone - not just 
+							the people we traditionally think of as disabled.
+						</p>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li>Screen readers</li>
+						<li>Keyboard/non-standard input users</li>
+						<li>Personalised stylesheets</li>
+						<li>TV/watch/e-reader</li>
+						<li>Slow internet connection</li>
+						<li>Low end device</li>
+					</ul>
+					<div class="notes">
+						<p>
+							It's also important to remember that not everyone is accessing your site through a nice 
+							laptop, or a high end phone. Making your site accessible - especially through the use of 
+							semantic HTML - is going to help users on all these types of devices. Many of these devices 
+							will not load your CSS, or may not run your JavaScript, meaning your HTML is all you have 
+							to stand on.
+						</p>
+					</div>
+				</section>
+				<section>
+					<style>
+						.link, .reveal a.link {
+							font-size: 42px;
+							color: #42affa;
+							text-decoration: underline;
+							border: none;
+							background: none;
+							font-family: 'Source Sans Pro';
+							cursor: pointer;
+						}
+						.link:focus, .reveal a.link:focus {
+							outline: 2px dashed currentColor;
+						}
+					</style>
+					<h3 style="font-size: 48px; margin-bottom: 50px">Links are not the same as buttons</h3>
+					<a class="link" href="http://www.cakewrecks.com/" style="margin-right: 20px">Cake Wrecks</a> vs
+					<button class="link" onclick="location.href='http://www.cakewrecks.com/'" style="margin-left: 20px">Cake Wrecks</button>
+					<div class="notes">
+						<p>
+							And even if you decide that you don't have to worry about any of that - it's still better to use 
+							semantic HTML, because browsers add behaviour to elements based on their semantics.
+						</p>
+						<p>
+							For example, on this page, we have a link, and a button with an onclick handler that navigates to 
+							a page. The two things aren't equivalent though. If you hover or focus on the link, you'll get a little
+							pop-up telling you where the link goes. And you can shift+click on the link to open it in a new window.
+						</p>
+						<p>
+							The button, on the other hand, will always open in the same tab. Furthermore, a button can be clicked
+							using either the enter key or space bar, while a link will only work with the enter key. (If you hit
+							space on the button here, it'll go to the next slide, then navigate to the next page, because slide 
+							software).
+						</p>
+					</div>
+				</section>
+				<section data-background-image="stack-pyramid.png" data-background-size="contain">
+					<div class="notes">
+						<p>
+							In an ideal world, we'd be building our apps according to this pyramid. A solid base of HTML,
+							with all the core information and functionality of the site. On top of this, CSS to give your 
+							page personality and style, and to enhance usability, where relevant. This is the point where
+							you apply all the stuff from the mock-ups that the designers give you - in the CSS <i>not</i>
+							the HTML.
+						</p>
+					</div>
+				</section>
+				<section>
+					<img src="performance.png" style="width: 100vw" alt="">
+					<h2>JavaScript is expensive</h2>
+
+					<div class="notes">
+						<p>
+							The answer is that JavaScript is expensive. JavaScript bundles are big - they take a lot of time and 
+							bandwidth to download. They also take a lot of processing power to render. When Chrome uses up all the 
+							RAM on your computer, it's not because of all the HTML it's processing.
+						</p>
+						<p>
+							This graph is me looking at Twitter for 10 seconds. I was using a late-model MacBook Pro, so the processor 
+							had no trouble - as evidenced by all the idle time. But of the time it was working, The vast majority of 
+							its efforts went into handling JavaScript.
+						</p>
+					</div>
+				</section>
+				<section>
+					<h3 style="font-size: 40px">Single Page Apps are great for <span style="color: magenta">devs</span></h3>
+					<h3>But not necessarily for <span style="color: magenta">users</span></h3>
+				</section>
+				<section data-background-image="We_Can_Do_It.jpg" data-background-size="contain" data-background-position="-30px">
+					<ul style="margin: auto; margin-right: 20px">
+						<li>Semantic HTML base</li>
+						<li>Enhance with CSS & JS</li>
+						<li>Rethink SPAs</li>
+					</ul>
+					<div class="notes">
+						<p>
+							In the meantime though, we can do our best to improve our user experiences by creating solid, 
+							semantic HTML bases for our components, using CSS to control the styling, and using JavaScript 
+							only where we have to.
+						</p>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: false,
+				history: true,
+				progress: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
